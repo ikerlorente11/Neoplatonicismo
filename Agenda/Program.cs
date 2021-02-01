@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NeoplatonicismoLib;
 
 namespace Agenda
 {
@@ -10,11 +11,7 @@ namespace Agenda
 	{
 		static void Main(string[] args)
 		{
-			//agenda
-			//test
-			//Comentario de prueba
-
-
+			Contact contact = new Contact("Pepe");
 		}
 	}
 }
