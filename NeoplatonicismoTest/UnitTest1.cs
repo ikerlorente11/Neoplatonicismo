@@ -19,7 +19,6 @@ namespace NeoplatonicismoTest
         [TestMethod]
         public void FindByEmailTest()
         {
-            assert
         }
 
         [TestMethod]
