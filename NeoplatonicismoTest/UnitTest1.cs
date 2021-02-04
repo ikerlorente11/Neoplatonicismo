@@ -46,6 +46,7 @@ namespace NeoplatonicismoTest
             Assert.IsNull(contact4);
 
         }
+        
 
         [TestMethod]
         public void ToStringTest()
