@@ -19,6 +19,11 @@ namespace NeoplatonicismoLib
             email = Email;
         }
 
+        public string getName ()
+        {
+            return name;
+        }
+
         public String getEmail()
         {
            return email;
