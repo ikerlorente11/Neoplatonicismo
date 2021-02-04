@@ -21,7 +21,7 @@ namespace NeoplatonicismoTest
         {
 
         }
-        }
+        
 
         [TestMethod]
         public void ToStringTest()
