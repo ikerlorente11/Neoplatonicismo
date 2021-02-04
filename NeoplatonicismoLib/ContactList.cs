@@ -30,9 +30,21 @@ namespace NeoplatonicismoLib
             return contacts.Count;
         }
 
+        contacts First = null;
+
         public String toString()
         {
-            return "";
+         Contact contact = First();
+            string output = "[";
+
+            while (contact != null)
+            {
+                 output += contact.Value + ",";
+                 contact = contact.next;
+            }
+            output = output.TrimEnd(',') + "] " + count() + " elements";
+      
+            return output;
         }
     }
 }
