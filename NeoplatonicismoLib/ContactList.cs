@@ -15,14 +15,32 @@ namespace NeoplatonicismoLib
             contacts.Add(contact);
         }
 
+        public List<Contact> getList()
+        {
+            return contacts;
+        }
+
         public Contact findByName(String name)
         {
-            return contacts[0];
+            foreach(Contact contact in contacts)
+            {
+                if(contact.getName().ToLower() == name.ToLower())
+                    return contact;
+            }
+            return null;
         }
 
         public Contact findByEmail(String email)
         {
-            return contacts[0];
+            foreach(Contact contact in contacts)
+                {
+                    if(contact.getEmail().ToLower() == email.ToLower())
+                    {
+                        return contact;
+                    }
+     
+                }
+            return null;
         }
 
         public int count()
