@@ -48,21 +48,14 @@ namespace NeoplatonicismoLib
             return contacts.Count;
         }
 
-        contacts First = null;
+        
 
         public String toString()
         {
-         Contact contact = First();
-            string output = "[";
-
-            while (contact != null)
+            foreach(Contact contact in contacts)
             {
-                 output += contact.Value + ",";
-                 contact = contact.next;
+                Console.WriteLine(contact.ToString());
             }
-            output = output.TrimEnd(',') + "] " + count() + " elements";
-      
-            return output;
         }
     }
 }
