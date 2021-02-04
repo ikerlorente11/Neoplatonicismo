@@ -50,7 +50,7 @@ namespace NeoplatonicismoLib
 
         
 
-        public String toString()
+        public void ToString()
         {
             foreach(Contact contact in contacts)
             {
