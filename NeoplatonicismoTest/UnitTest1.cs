@@ -51,6 +51,10 @@ namespace NeoplatonicismoTest
         [TestMethod]
         public void ToStringTest()
         {
+            Contact contact1 = new Contact("Pepe", "111111111", "pepe@gmail.com");
+            ContactList contactList = new ContactList();
+            Assert.IsTrue(contact1.ToString()=="Pepe,111111111,pepe@gmail.com");
+          
 
         }
     }
