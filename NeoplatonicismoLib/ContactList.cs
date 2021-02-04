@@ -24,7 +24,7 @@ namespace NeoplatonicismoLib
         {
             foreach(Contact contact in contacts)
             {
-                if(contact.getName().ToLower == name.ToLower)
+                if(contact.getName().ToLower() == name.ToLower())
                     return contact;
             }
             return null;
@@ -34,7 +34,7 @@ namespace NeoplatonicismoLib
         {
             foreach(Contact contact in contacts)
                 {
-                    if(contact.getEmail().ToLower == email.ToLower)
+                    if(contact.getEmail().ToLower() == email.ToLower())
                     {
                         return contact;
                     }
