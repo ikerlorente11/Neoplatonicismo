@@ -12,6 +12,7 @@ namespace Agenda
 		static void Main(string[] args)
 		{
 			Contact contact = new Contact("Pepe");
+			Contact contact1 = new Contact("Juan", "645897234", "juan@gmail.com");
 		}
 	}
 }
