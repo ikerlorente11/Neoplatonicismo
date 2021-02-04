@@ -15,9 +15,19 @@ namespace NeoplatonicismoLib
             contacts.Add(contact);
         }
 
+        public List<Contact> getList()
+        {
+            return contacts;
+        }
+
         public Contact findByName(String name)
         {
-            return contacts[0];
+            foreach(Contact contact in contacts)
+            {
+                if(contact.getName() == name)
+                    return contact;
+            }
+            return null;
         }
 
         public Contact findByEmail(String email)

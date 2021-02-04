@@ -18,5 +18,10 @@ namespace NeoplatonicismoLib
             phone = Phone;
             email = Email;
         }
+
+        public string getName ()
+        {
+            return name;
+        }
     }
 }
