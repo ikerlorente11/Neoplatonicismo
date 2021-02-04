@@ -22,7 +22,15 @@ namespace NeoplatonicismoLib
 
         public Contact findByEmail(String email)
         {
-            return contacts[0];
+            foreach(Contact contact in contacts)
+                {
+                    if(Contact.getEmail() == email)
+                    {
+                        return contact;
+                    }
+     
+                }
+            return null;
         }
 
         public int count()
