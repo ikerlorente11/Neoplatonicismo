@@ -50,9 +50,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\NeoplatonicismoLib\NeoplatonicismoLib.csproj">
-      <Project>{e8f450d1-a5e0-475e-b2cb-8453a81e67b5}</Project>
-      <Name>NeoplatonicismoLib</Name>
+    <ProjectReference Include="..\AgendaLib\AgendaLib.csproj">
+      <Project>{f3a66046-e4d9-4225-83ef-eeabdda22a78}</Project>
+      <Name>AgendaLib</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

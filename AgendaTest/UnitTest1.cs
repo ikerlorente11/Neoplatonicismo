@@ -2,7 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NeoplatonicismoLib;
 
-namespace NeoplatonicismoTest
+namespace AgendaTest
 {
     [TestClass]
     public class UnitTest1
