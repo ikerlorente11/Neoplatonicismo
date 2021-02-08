@@ -6,7 +6,25 @@ using System.Threading.Tasks;
 
 namespace NeoplatonicismoLib
 {
-    class TableColumn
+    public class TableColumn
     {
+        String name;
+        Type type;
+
+        public TableColumn(String Name, Type Type)
+        {
+            name = Name;
+            type = Type;
+        }
+
+        public String GetName()
+        {
+            return name;
+        }
+
+        public Type GetTypeValue()
+        {
+            return type;
+        }
     }
 }
