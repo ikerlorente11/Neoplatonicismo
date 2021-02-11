@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NeoplatonicismoLib;
 
@@ -22,6 +23,12 @@ namespace NeoplatonicismoTest
         [TestMethod]
         public void DropTableTest()
         {
+            Database database = new Database("DB", "admin", "admin");
+            database.CreateTable("table1");
+
+            database.DropTable("table1");
+
+            Assert.AreEqual(0, database.GetTable().Count());
 
         }
 
