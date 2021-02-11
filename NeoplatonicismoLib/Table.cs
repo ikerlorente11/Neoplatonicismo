@@ -23,17 +23,17 @@ namespace NeoplatonicismoLib
 
         }
 
-        public void DeleteRow(String columnName, String value)
+        public void DeleteRow(String columnName, String value, String operador)
         {
 
         }
 
-        public void Update(String columnName, String value, List<String> row)
+        public void UpdateRow(String columnName, String value, String operador, List<String> row)
         {
 
         }
 
-        public List<String> Find(String columnName, String value)
+        public List<String> Find(String columnName, String value, String operador)
         {
             return null;
         }
