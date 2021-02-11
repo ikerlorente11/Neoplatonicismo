@@ -8,7 +8,37 @@ namespace NeoplatonicismoTest
     class DatabaseTest
     {
         [TestMethod]
-        public void alterTable(String tableName, String columnName, TableColumn column)
+        public void LoadDatabaseTest()
+        {
+
+        }
+
+        [TestMethod]
+        public void CreateTableTest()
+        {
+
+        }
+
+        [TestMethod]
+        public void DropTableTest()
+        {
+
+        }
+
+        [TestMethod]
+        public void AlterTable()
+        {
+
+        }
+
+        [TestMethod]
+        public void FindTableTest()
+        {
+
+        }
+
+        [TestMethod]
+        public void SaveDatabaseTest()
         {
 
         }
