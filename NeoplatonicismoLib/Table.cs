@@ -33,9 +33,9 @@ namespace NeoplatonicismoLib
 
         }
 
-        public void Find(String columnName, String value)
+        public List<String> Find(String columnName, String value)
         {
-
+            return null;
         }
     }
 }
