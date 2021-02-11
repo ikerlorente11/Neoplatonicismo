@@ -28,7 +28,7 @@ namespace NeoplatonicismoTest
 
             database.DropTable("table1");
 
-            Assert.AreEqual(0, database.GetTable().Count());
+            Assert.AreEqual(0, database.GetTable().Count);
 
         }
 
