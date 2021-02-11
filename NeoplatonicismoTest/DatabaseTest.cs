@@ -43,6 +43,7 @@ namespace NeoplatonicismoTest
             database.CreateTable("table1");
             List<List<String>> tables = database.FindTable("table1");
             Assert.AreEqual(tables.GetName() == "table1");
+           
         }
 
         [TestMethod]
