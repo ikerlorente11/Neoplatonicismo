@@ -40,9 +40,9 @@ namespace NeoplatonicismoLib
 
         }
 
-        public void FindTable(String tableName)
+        public List<List<String>> FindTable(String tableName)
         {
-
+            return null;
         }
 
         public void SaveDatabase()
