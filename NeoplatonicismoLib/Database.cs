@@ -25,6 +25,11 @@ namespace NeoplatonicismoLib
 
         }
 
+        public List<Table> GetTables()
+        {
+            return null;
+        }
+
         public void CreateTable(String tableName)
         {
 
