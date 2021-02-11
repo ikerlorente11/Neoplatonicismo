@@ -4,6 +4,7 @@ using NeoplatonicismoLib;
 
 namespace NeoplatonicismoTest
 {
+    [TestClass]
     class DatabaseTest
     {
         [TestMethod]
