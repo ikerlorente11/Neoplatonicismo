@@ -1,13 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NeoplatonicismoTest;
 
 namespace NeoplatonicismoTest
 {
+    [TestClass]
     class TableColumnTest
     {
+        [TestMethod]
+        public void GetNameTest()
+        {
+
+        }
+        [TestMethod]
+        public void GetTypeValueTest()
+        {
+        
+        }
+
     }
 }
