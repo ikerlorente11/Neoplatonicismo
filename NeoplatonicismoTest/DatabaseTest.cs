@@ -32,7 +32,7 @@ namespace NeoplatonicismoTest
 
             database.DropTable("table1");
 
-            Assert.AreEqual(0, database.GetTable().Count);
+            Assert.AreEqual(0, database.GetTables().Count);
 
         }
 
@@ -47,8 +47,8 @@ namespace NeoplatonicismoTest
         {
             Database database = new Database("db", "admin", "admin");
             database.CreateTable("table1");
-            List<List<String>> tables = database.FindTable("table1");
-            Assert.AreEqual(tables.GetName() == "table1");
+            List<Table> tables = database.FindTable("table1");
+            Assert.AreEqual(tables[0].GetName(), "table1");
            
         }
 

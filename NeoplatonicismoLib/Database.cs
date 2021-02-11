@@ -45,7 +45,7 @@ namespace NeoplatonicismoLib
 
         }
 
-        public List<List<String>> FindTable(String tableName)
+        public List<Table> FindTable(String tableName)
         {
             return null;
         }
