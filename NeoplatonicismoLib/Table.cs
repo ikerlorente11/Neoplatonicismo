@@ -11,16 +11,17 @@ namespace NeoplatonicismoLib
 
         String name;
         List<TableColumn> columnsType;
-        List<List<String>> rows;
+        List<List<String>> rows = new List<List<string>>();
 
-        public Table(String name, List<TableColumn> ColumnsType)
+        public Table(String Name, List<TableColumn> ColumnsType)
         {
+            name = Name;
             columnsType = ColumnsType;
         }
 
         public void AddRow(List<String> row)
         {
-
+            rows.Add(row);
         }
 
         public void DeleteRow(String columnName, String value, String operador)
@@ -33,9 +34,19 @@ namespace NeoplatonicismoLib
 
         }
 
-        public List<String> Find(String columnName, String value, String operador)
+        public List<String> FindRow(String columnName, String value, String operador)
         {
             return null;
+        }
+
+        public String GetName()
+        {
+            return name;
+        }
+
+        public List<List<String>> GetListRows()
+        {
+            return rows;
         }
     }
 }
