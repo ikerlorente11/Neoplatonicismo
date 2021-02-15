@@ -5,7 +5,7 @@ using NeoplatonicismoLib;
 namespace NeoplatonicismoTest
 {
     [TestClass]
-    class TableColumnTest
+    public class TableColumnTest
     {
         [TestMethod]
         public void GetNameTest()
@@ -20,8 +20,8 @@ namespace NeoplatonicismoTest
         {
             TableColumn nameColumn = new TableColumn("Name", typeof(String));
             Assert.IsNotNull(nameColumn.GetType());
-            Assert.IsTrue(nameColumn.GetType() == typeof(String));
-            Assert.IsFalse(nameColumn.GetType() == typeof(int));
+            Assert.IsTrue(nameColumn.GetTypeValue() == typeof(String));
+            Assert.IsFalse(nameColumn.GetTypeValue() == typeof(int));
         }
 
     }

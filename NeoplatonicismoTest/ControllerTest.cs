@@ -7,7 +7,7 @@ using NeoplatonicismoTest;
 
 namespace NeoplatonicismoTest
 {
-    class ControllerTest
+    public class ControllerTest
     {
     }
 }

@@ -7,7 +7,7 @@ using NeoplatonicismoLib;
 namespace NeoplatonicismoTest
 {
     [TestClass]
-    class DatabaseTest
+    public class DatabaseTest
     {
         [TestMethod]
         public void LoadDatabaseTest()
