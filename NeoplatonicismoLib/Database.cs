@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace NeoplatonicismoLib
 {
@@ -37,7 +38,8 @@ namespace NeoplatonicismoLib
 
         public void DropTable(String tableName)
         {
-
+            Table table = FindTable(tableName);
+            tables.Remove(table);
         }
 
         public void AlterTable(String tableName, String columnName, TableColumn column)
