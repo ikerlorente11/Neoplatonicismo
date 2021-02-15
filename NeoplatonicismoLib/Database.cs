@@ -12,7 +12,7 @@ namespace NeoplatonicismoLib
         String name;
         String username;
         String password;
-        List<Table> tables;
+        List<Table> tables= new List<Table>();
 
         public Database(String Name, String Username, String Password)
         {
@@ -28,12 +28,13 @@ namespace NeoplatonicismoLib
 
         public List<Table> GetTables()
         {
-            return null;
+            return tables;
         }
 
         public void CreateTable(String tableName, List<TableColumn> tableColumns )
         {
-
+            Table table = new Table(tableName, tableColumns);
+            tables.Add(table);
         }
 
         public void DropTable(String tableName)
@@ -47,8 +48,13 @@ namespace NeoplatonicismoLib
 
         }
 
-        public List<Table> FindTable(String tableName)
+        public Table FindTable(String tableName)
         {
+            foreach(Table table in tables)
+            {
+                if (table.GetName() == tableName)
+                    return table;
+            }
             return null;
         }
 
