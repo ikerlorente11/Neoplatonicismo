@@ -49,7 +49,7 @@ namespace NeoplatonicismoTest
             database.CreateTable("table1", tableColumns);
             database.AlterTable("table1", "Column1", newTable);
 
-            Assert.AreEqual(newTable, database.GetTables()[0].GetColumnType()[0]);
+            Assert.AreEqual(newTable, database.GetTables()[0].GetColumnsType()[0]);
         }
 
         [TestMethod]
