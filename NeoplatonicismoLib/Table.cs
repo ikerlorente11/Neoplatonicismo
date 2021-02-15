@@ -46,7 +46,7 @@ namespace NeoplatonicismoLib
 
         public List<TableColumn> GetColumnType()
         {
-            return null;
+            return columnsType;
         }
 
         public void SetColumnType()

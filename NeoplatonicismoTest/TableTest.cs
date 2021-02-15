@@ -69,5 +69,47 @@ namespace NeoplatonicismoTest
 
             Assert.AreEqual(table.FindRow("column1", "value2-1", "="), new List<string> { "value2-1", "value2-2" });
         }
+        
+        [TestMethod]
+        public void getNameTest()
+        {
+            List<TableColumn> tableColumns = new List<TableColumn>();
+            tableColumns.Add(new TableColumn("Column1", typeof(string)));
+            tableColumns.Add(new TableColumn("Column2", typeof(int)));
+
+            Table table = new Table("table", tableColumns);
+            Assert.AreEqual(table.GetName(), "table");
+            
+        }
+
+        [TestMethod]
+        public void GetColumnTypeTest()
+        {
+            List<TableColumn> tableColumns = new List<TableColumn>();
+            tableColumns.Add(new TableColumn("Column1", typeof(string)));
+            tableColumns.Add(new TableColumn("Column2", typeof(int)));
+
+            Table table = new Table("table", tableColumns);
+            Assert.AreEqual(table.GetColumnType(), tableColumns);
+
+        }
+
+        [TestMethod]
+        public void SetColumnTypeTest()
+        {
+            List<TableColumn> tableColumns = new List<TableColumn>();
+            tableColumns.Add(new TableColumn("Column1", typeof(string)));
+            tableColumns.Add(new TableColumn("Column2", typeof(int)));
+
+            Table table = new Table("table", tableColumns);
+            
+
+        }
+        [TestMethod]
+        public void GetListRowsTest()
+        {
+
+        }
+
     }
 }
