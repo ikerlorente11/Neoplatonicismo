@@ -90,7 +90,7 @@ namespace NeoplatonicismoTest
             tableColumns.Add(new TableColumn("Column2", typeof(int)));
 
             Table table = new Table("table", tableColumns);
-            Assert.AreEqual(table.GetColumnType(), tableColumns);
+            Assert.AreEqual(table.GetColumnsType(), tableColumns);
 
         }
 
@@ -102,13 +102,29 @@ namespace NeoplatonicismoTest
             tableColumns.Add(new TableColumn("Column2", typeof(int)));
 
             Table table = new Table("table", tableColumns);
-            
+            tableColumns.Insert(0, new TableColumn("Column3", typeof(int)));
+
+            table.SetColumnsType(tableColumns);
+            Assert.AreEqual(table.GetColumnsType(), tableColumns);
 
         }
         [TestMethod]
         public void GetListRowsTest()
         {
+            List<TableColumn> tableColumns = new List<TableColumn>();
+            tableColumns.Add(new TableColumn("Column1", typeof(string)));
+            tableColumns.Add(new TableColumn("Column2", typeof(int)));
 
+            Table table = new Table("table", tableColumns);
+
+            table.AddRow(new List<string> { "value1-1", "value1-2" });
+            table.AddRow(new List<string> { "value2-1", "value2-2" });
+           
+            List <List<String>> list = new List<List<string>>();
+            list.Insert(0, new List<string> { "value1-1", "value1-2" });
+            list.Insert(1, new List<string> { "value2-1", "value2-2" });
+
+            Assert.AreEqual(table.GetListRows(), list);
         }
 
     }
