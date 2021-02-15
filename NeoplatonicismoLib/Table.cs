@@ -44,6 +44,16 @@ namespace NeoplatonicismoLib
             return name;
         }
 
+        public List<TableColumn> GetColumnType()
+        {
+            return null;
+        }
+
+        public void SetColumnType()
+        {
+
+        }
+
         public List<List<String>> GetListRows()
         {
             return rows;
