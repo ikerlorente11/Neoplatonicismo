@@ -30,7 +30,7 @@ namespace NeoplatonicismoLib
             return null;
         }
 
-        public void CreateTable(String tableName)
+        public void CreateTable(String tableName, List<TableColumn> tableColumns )
         {
 
         }
