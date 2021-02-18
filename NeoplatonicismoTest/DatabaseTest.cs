@@ -37,7 +37,7 @@ namespace NeoplatonicismoTest
         }
 
         [TestMethod]
-        public void AlterTable()
+        public void AlterTableTest()
         {
             Database database = new Database("db", "admin", "admin");
 
