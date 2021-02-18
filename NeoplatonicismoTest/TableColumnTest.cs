@@ -5,7 +5,7 @@ using NeoplatonicismoLib;
 namespace NeoplatonicismoTest
 {
     [TestClass]
-    class TableColumnTest
+    public class TableColumnTest
     {
         [TestMethod]
         public void GetNameTest()
