@@ -45,7 +45,17 @@ namespace NeoplatonicismoLib
 
         public void AlterTable(String tableName, String columnName, TableColumn column)
         {
-
+            Table table = FindTable(tableName);
+            List<TableColumn> lista = table.GetColumnsType();
+            for(int i=0; i<lista.Count; i++)
+            {
+                if(lista[i].GetName() == columnName )
+                {
+                    table.SetColumnsType(lista);
+                    lista.Insert(i, column);
+                }
+            }
+           
         }
 
         public Table FindTable(String tableName)

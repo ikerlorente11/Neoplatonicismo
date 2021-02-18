@@ -13,7 +13,7 @@ namespace NeoplatonicismoTest
         {
             List<TableColumn> tableColumns = new List<TableColumn>();
             tableColumns.Add(new TableColumn("Column1", typeof(string)));
-            tableColumns.Add(new TableColumn("Column1", typeof(int)));
+            tableColumns.Add(new TableColumn("Column2", typeof(int)));
 
             Table table = new Table("table", tableColumns);
 
@@ -28,7 +28,7 @@ namespace NeoplatonicismoTest
         {
             List<TableColumn> tableColumns = new List<TableColumn>();
             tableColumns.Add(new TableColumn("Column1", typeof(string)));
-            tableColumns.Add(new TableColumn("Column1", typeof(int)));
+            tableColumns.Add(new TableColumn("Column2", typeof(int)));
 
             Table table = new Table("table", tableColumns);
 
@@ -44,7 +44,7 @@ namespace NeoplatonicismoTest
         {
             List<TableColumn> tableColumns = new List<TableColumn>();
             tableColumns.Add(new TableColumn("Column1", typeof(string)));
-            tableColumns.Add(new TableColumn("Column1", typeof(int)));
+            tableColumns.Add(new TableColumn("Column2", typeof(int)));
 
             Table table = new Table("table", tableColumns);
 
@@ -60,7 +60,7 @@ namespace NeoplatonicismoTest
         {
             List<TableColumn> tableColumns = new List<TableColumn>();
             tableColumns.Add(new TableColumn("Column1", typeof(string)));
-            tableColumns.Add(new TableColumn("Column1", typeof(int)));
+            tableColumns.Add(new TableColumn("Column2", typeof(int)));
 
             Table table = new Table("table", tableColumns);
 

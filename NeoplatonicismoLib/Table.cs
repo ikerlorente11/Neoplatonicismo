@@ -26,17 +26,71 @@ namespace NeoplatonicismoLib
 
         public void DeleteRow(String columnName, String value, String operador)
         {
-
+            int position = FindRow(columnName,value,operador);
+            if(position >= 0)
+            {
+                rows.RemoveAt(position);
+            }
         }
 
         public void UpdateRow(String columnName, String value, String operador, List<String> row)
         {
-
+            int position = FindRow(columnName, value, operador);
+            if (position >= 0)
+            {
+                rows.Insert(position,row);
+            }
         }
 
-        public List<String> FindRow(String columnName, String value, String operador)
+        public int FindRow(String columnName, String value, String operador)
         {
-            return null;
+            int columnPos = -1;
+            for(int i = 0; i < columnsType.Count && columnPos == -1; i++)
+            {
+                if (columnsType[i].GetName().Equals(columnName))
+                {
+                    columnPos = i;
+                }
+            }
+
+            if(columnPos == -1)
+            {
+                return columnPos;
+            }
+            else
+            {
+                switch (operador)
+                {
+                    case "==":
+                        for(int i = 0; i < rows.Count; i++)
+                        {
+                            if (rows[i][columnPos].Equals(value))
+                            {
+                                return i;
+                            }
+                        }
+                        break;
+                    case "<=":
+                        for (int i = 0; i < rows.Count; i++)
+                        {
+                            if (rows[i][columnPos].CompareTo(value) <= 0)
+                            {
+                                return i;
+                            }
+                        }
+                        break;
+                    case ">=":
+                        for (int i = 0; i < rows.Count; i++)
+                        {
+                            if (rows[i][columnPos].CompareTo(value) >= 0)
+                            {
+                                return i;
+                            }
+                        }
+                        break;
+                }
+                return -2;
+            }
         }
 
         public String GetName()
@@ -44,14 +98,14 @@ namespace NeoplatonicismoLib
             return name;
         }
 
-        public List<TableColumn> GetColumnType()
+        public List<TableColumn> GetColumnsType()
         {
-            return null;
+            return columnsType;
         }
 
-        public void SetColumnType()
+        public void SetColumnsType(List<TableColumn> ColumnsType)
         {
-
+            columnsType = ColumnsType;
         }
 
         public List<List<String>> GetListRows()
