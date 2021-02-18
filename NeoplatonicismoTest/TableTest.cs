@@ -124,8 +124,12 @@ namespace NeoplatonicismoTest
             list.Insert(0, new List<string> { "value1-1", "value1-2" });
             list.Insert(1, new List<string> { "value2-1", "value2-2" });
 
-            Assert.AreEqual(table.GetListRows(), list);
+            Assert.AreEqual(table.GetListRows()[0][0], list[0][0]);
+            Assert.AreEqual(table.GetListRows()[0][1], list[0][1]);
+            Assert.AreEqual(table.GetListRows()[1][0], list[1][0]);
+            Assert.AreEqual(table.GetListRows()[1][1], list[1][1]);
         }
 
     }
 }
+ 
