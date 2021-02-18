@@ -1,6 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using NeoplatonicismoLib;
+using AgendaLib;
 
 namespace AgendaTest
 {
