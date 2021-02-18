@@ -42,7 +42,7 @@ namespace NeoplatonicismoLib
             Table table = FindTable(tableName);
             tables.Remove(table);
         }
-
+        /*
         public void AlterTable(String tableName, String columnName, TableColumn column)
         {
             Table table = FindTable(tableName);
@@ -57,7 +57,7 @@ namespace NeoplatonicismoLib
             }
            
         }
-
+        */
         public Table FindTable(String tableName)
         {
             foreach(Table table in tables)
