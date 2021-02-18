@@ -9,6 +9,19 @@ namespace NeoplatonicismoTest
     public class TableTest
     {
         [TestMethod]
+        public void CheckTypesTest()
+        {
+            List<TableColumn> tableColumns = new List<TableColumn>();
+            tableColumns.Add(new TableColumn("Column1", typeof(string)));
+            tableColumns.Add(new TableColumn("Column2", typeof(int)));
+
+            Table table = new Table("table", tableColumns);
+
+            Assert.IsTrue(table.CheckTypes(new List<string> { "value1-1", "1" }));
+            Assert.IsFalse(table.CheckTypes(new List<string> { "value1-1", "Hola" }));
+        }
+
+        [TestMethod]
         public void AddRowTest()
         {
             List<TableColumn> tableColumns = new List<TableColumn>();
@@ -17,10 +30,11 @@ namespace NeoplatonicismoTest
 
             Table table = new Table("table", tableColumns);
 
-            table.AddRow(new List<string> {"value1-1","value1-2"});
+            table.AddRow(new List<string> {"value1-1","1"});
             Assert.IsTrue(table.GetListRows().Count == 1);
-            table.AddRow(new List<string> { "value2-1", "value2-2" });
+            table.AddRow(new List<string> { "value2-1", "2" });
             Assert.IsTrue(table.GetListRows().Count == 2);
+
         }
 
         [TestMethod]
