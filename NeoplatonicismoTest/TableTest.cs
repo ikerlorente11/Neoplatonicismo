@@ -6,7 +6,7 @@ using NeoplatonicismoLib;
 namespace NeoplatonicismoTest
 {
     [TestClass]
-    class TableTest
+    public class TableTest
     {
         [TestMethod]
         public void AddRowTest()
