@@ -44,10 +44,12 @@ namespace NeoplatonicismoLib
 
         public void UpdateRow(String columnName, String value, String operador, List<String> row)
         {
+            
             foreach(int position in FindRow(columnName, value, operador))
             {
-                if (position >= 0)
+                if (position >= 0 && CheckTypes(row)==true)
                 {
+                    
                     rows.Insert(position, row);
                 }
             }
