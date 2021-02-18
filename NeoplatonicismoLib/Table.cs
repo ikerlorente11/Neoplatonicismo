@@ -21,7 +21,12 @@ namespace NeoplatonicismoLib
 
         public void AddRow(List<String> row)
         {
-            rows.Add(row);
+           if( CheckTypes(row)==true)
+           {
+                rows.Add(row);
+           }
+            
+           
         }
 
         public void DeleteRow(String columnName, String value, String operador)
@@ -201,6 +206,40 @@ namespace NeoplatonicismoLib
         public List<List<String>> GetListRows()
         {
             return rows;
+        }
+
+        public Boolean CheckTypes(List<String> row)
+        {
+            Boolean validity = true;
+            for (int i = 0; i < columnsType.Count && validity != false; i++)
+            {
+                if (columnsType[i].GetTypeValue() == typeof(int))
+                {
+                    try
+                    {
+                        Convert.ToInt32(row[i]);
+                    }
+                    catch (FormatException)
+                    {
+
+                        validity = false;
+                    }
+                }
+                else if (columnsType[i].GetTypeValue() == typeof(double))
+                {
+                    try
+                    {
+                        Convert.ToDouble(row[i]);
+                    }
+                    catch (FormatException)
+                    {
+                        validity = false;
+                    }
+
+                }
+                    
+            }
+            return validity;
         }
     }
 }
