@@ -70,7 +70,18 @@ namespace NeoplatonicismoLib
 
         public void SaveDatabase()
         {
-
+            StringBuilder sb = new StringBuilder();
+            foreach (Table table in tables)
+            {
+                sb.AppendLine(table.GetName());
+                string tableNames;
+                foreach(TableColumn tableColumn in table.GetColumnsType())
+                {
+                    tableNames = tableColumn.GetName() +"="+ tableColumn.GetTypeValue() + ",";
+                    
+                }
+               
+            }
         }
     }
 }
