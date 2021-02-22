@@ -46,9 +46,9 @@ namespace NeoplatonicismoTest
 
             Table table = new Table("table", tableColumns);
 
-            table.AddRow(new List<string> { "value1-1", "value1-2" });
-            table.AddRow(new List<string> { "value2-1", "value2-2" });
-            table.AddRow(new List<string> { "value3-1", "value3-2" });
+            table.AddRow(new List<string> { "value1-1", "1" });
+            table.AddRow(new List<string> { "value2-1", "2" });
+            table.AddRow(new List<string> { "value3-1", "3" });
             table.DeleteRow("Column1","value2-1","=");
 
             Assert.IsTrue(table.GetListRows().Count == 2);
@@ -76,18 +76,18 @@ namespace NeoplatonicismoTest
 
             Table table = new Table("table", tableColumns);
 
-            table.AddRow(new List<string> { "value1-1", "value1-2" });
-            table.AddRow(new List<string> { "value2-1", "value2-2" });
-            table.UpdateRow("Column1", "value2-1", "=", new List<string> { "value3-1", "value3-2" });
+            table.AddRow(new List<string> { "value1-1", "1" });
+            table.AddRow(new List<string> { "value2-1", "2" });
+            table.UpdateRow("Column1", "value2-1", "=", new List<string> { "value3-1", "3" });
 
             Assert.AreEqual(table.GetListRows()[1][0], "value3-1");
-            Assert.AreEqual(table.GetListRows()[1][1], "value3-2");
+            Assert.AreEqual(table.GetListRows()[1][1], "3");
 
-            table.UpdateRow("Column1", "%lue%", "like", new List<string> { "value4-1", "value4-2" });
+            table.UpdateRow("Column1", "%lue%", "like", new List<string> { "value4-1", "4" });
             Assert.AreEqual(table.GetListRows()[0][0], "value4-1");
-            Assert.AreEqual(table.GetListRows()[0][1], "value4-2");
+            Assert.AreEqual(table.GetListRows()[0][1], "4");
             Assert.AreEqual(table.GetListRows()[1][0], "value4-1");
-            Assert.AreEqual(table.GetListRows()[1][1], "value4-2");
+            Assert.AreEqual(table.GetListRows()[1][1], "4");
         }
 
         [TestMethod]
@@ -166,12 +166,12 @@ namespace NeoplatonicismoTest
 
             Table table = new Table("table", tableColumns);
 
-            table.AddRow(new List<string> { "value1-1", "value1-2" });
-            table.AddRow(new List<string> { "value2-1", "value2-2" });
+            table.AddRow(new List<string> { "value1-1", "1" });
+            table.AddRow(new List<string> { "value2-1", "2" });
            
             List <List<String>> list = new List<List<string>>();
-            list.Insert(0, new List<string> { "value1-1", "value1-2" });
-            list.Insert(1, new List<string> { "value2-1", "value2-2" });
+            list.Insert(0, new List<string> { "value1-1", "1" });
+            list.Insert(1, new List<string> { "value2-1", "2" });
 
             Assert.AreEqual(table.GetListRows()[0][0], list[0][0]);
             Assert.AreEqual(table.GetListRows()[0][1], list[0][1]);
