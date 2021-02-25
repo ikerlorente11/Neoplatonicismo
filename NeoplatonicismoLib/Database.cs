@@ -109,11 +109,11 @@ namespace NeoplatonicismoLib
             tables[FindTable(tableName)].AddRow(row);
         }
 
-        public string SaveDatabase()
+        public void SaveDatabase()
         {
-            string finalData = null;
+            string finalData = "";
 
-            for(int i =0; i<tables.Count; i++)
+            for(int i = 0; i < tables.Count; i++)
             {
                 if (i == 0)
                 {
@@ -124,10 +124,12 @@ namespace NeoplatonicismoLib
                     finalData += "[1]" + tables[i].ToFile();
                 }
             }
-            String path = "../../../structureTest1.txt";
+            String path = "../../../structureTest2.txt";
             StreamWriter sw = File.CreateText(path);
-            sw.WriteLine(finalData);
-            return finalData;
+            sw.AutoFlush = true;
+            sw.Write(finalData);
+            sw.AutoFlush = false;
+            sw.Close();
         }
     }
 }

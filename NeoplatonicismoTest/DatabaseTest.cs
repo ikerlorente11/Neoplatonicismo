@@ -92,10 +92,12 @@ namespace NeoplatonicismoTest
         {
             Database database = new Database("db", "admin", "admin");
             database.LoadDatabase();
-            
-            String path = "../../../structureTest1.txt";
-            String db = File.ReadAllText(path);
-            Assert.AreEqual(db, database.SaveDatabase());
+            database.SaveDatabase();
+
+            String db = File.ReadAllText("../../../structureTest1.txt");
+            String db2 = File.ReadAllText("../../../structureTest2.txt");
+
+            Assert.AreEqual(db, db2);
         }
     }
 }
