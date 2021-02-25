@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NeoplatonicismoLib;
+using System.IO;
 
 namespace NeoplatonicismoTest
 {
@@ -89,7 +90,12 @@ namespace NeoplatonicismoTest
         [TestMethod]
         public void SaveDatabaseTest()
         {
-
+            Database database = new Database("db", "admin", "admin");
+            database.LoadDatabase();
+            
+            String path = "../../../structureTest1.txt";
+            String db = File.ReadAllText(path);
+            Assert.AreEqual(db, database.SaveDatabase());
         }
     }
 }

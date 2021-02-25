@@ -241,5 +241,43 @@ namespace NeoplatonicismoLib
             }
             return validity;
         }
+        public string ToFile()
+        {
+            string data = name + "[2]";
+            for (int i=0;i<columnsType.Count; i++)
+            {
+                if (i == 0)
+                {
+                    data += columnsType[i].ToFile();
+                }
+                else
+                {
+                    data += "[3]"+ columnsType[i].ToFile();
+                }
+            }
+            data += "[2]";
+            for (int i = 0; i < rows.Count; i++)
+            {
+                if (i != 0)
+                {
+                    data += "[5]";
+                }
+                for (int j = 0; j < rows[i].Count; j++)
+                {
+
+                    if (j == 0)
+                    {
+                        data += rows[i][j];
+                    }
+                    else
+                    {
+                        data += "[3]" + rows[i][j];
+                    }
+                }
+            }
+            
+            return data;
+        }
     }
+
 }

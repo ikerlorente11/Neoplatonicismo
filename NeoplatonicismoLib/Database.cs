@@ -109,20 +109,25 @@ namespace NeoplatonicismoLib
             tables[FindTable(tableName)].AddRow(row);
         }
 
-        public void SaveDatabase()
+        public string SaveDatabase()
         {
-            StringBuilder sb = new StringBuilder();
-            foreach (Table table in tables)
+            string finalData = null;
+
+            for(int i =0; i<tables.Count; i++)
             {
-                sb.AppendLine(table.GetName());
-                string tableNames;
-                foreach(TableColumn tableColumn in table.GetColumnsType())
+                if (i == 0)
                 {
-                    tableNames = tableColumn.GetName() +"="+ tableColumn.GetTypeValue() + ",";
-                    
+                    finalData += tables[i].ToFile();
                 }
-               
+                else
+                {
+                    finalData += "[1]" + tables[i].ToFile();
+                }
             }
+            String path = "../../../structureTest1.txt";
+            StreamWriter sw = File.CreateText(path);
+            sw.WriteLine(finalData);
+            return finalData;
         }
     }
 }
