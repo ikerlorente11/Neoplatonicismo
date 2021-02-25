@@ -23,7 +23,7 @@ namespace NeoplatonicismoLib
 
         public void LoadDatabase()
         {
-            String path = "../../../strucutureTest1.txt";
+            String path = "../../../structureTest1.txt";
             String db = File.ReadAllText(path);
 
             string[] tables = db.Split(new string[] { "[1]" }, StringSplitOptions.None);
