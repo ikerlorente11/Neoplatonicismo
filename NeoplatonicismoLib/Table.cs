@@ -21,12 +21,10 @@ namespace NeoplatonicismoLib
 
         public void AddRow(List<String> row)
         {
-           if( CheckTypes(row)==true)
+           if(CheckTypes(row)==true)
            {
                 rows.Add(row);
-           }
-            
-           
+           }           
         }
 
         public void DeleteRow(String columnName, String value, String operador)
