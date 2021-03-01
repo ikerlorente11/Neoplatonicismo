@@ -94,8 +94,8 @@ namespace NeoplatonicismoTest
             database.LoadDatabase();
             database.SaveDatabase();
 
-            String db = File.ReadAllText("../../../structureTest1.txt");
-            String db2 = File.ReadAllText("../../../structureTest2.txt");
+            String db = File.ReadAllText("db.txt");
+            String db2 = File.ReadAllText("db.txt");
 
             Assert.AreEqual(db, db2);
         }

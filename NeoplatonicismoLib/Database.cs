@@ -23,7 +23,7 @@ namespace NeoplatonicismoLib
 
         public void LoadDatabase()
         {
-            String path = "../../../structureTest1.txt";
+            String path = name + ".txt";
             String db = File.ReadAllText(path);
 
             string[] tables = db.Split(new string[] { "[1]" }, StringSplitOptions.None);
@@ -124,7 +124,7 @@ namespace NeoplatonicismoLib
                     finalData += "[1]" + tables[i].ToFile();
                 }
             }
-            String path = "../../../structureTest2.txt";
+            String path = name + ".txt";
             StreamWriter sw = File.CreateText(path);
             sw.AutoFlush = true;
             sw.Write(finalData);
