@@ -26,5 +26,26 @@ namespace NeoplatonicismoLib
         {
             return type;
         }
+
+        public string ToFile()
+        {
+            if(type == typeof(string))
+            {
+                return name + "[4]" + "string";
+
+            }else if(type == typeof(int))
+            {
+                return name + "[4]" + "int";
+
+            }else if(type == typeof(double))
+            {
+                return name + "[4]" + "double";
+            }
+            else 
+            { 
+                return null; 
+            }
+            
+        }
     }
 }

@@ -12,7 +12,7 @@ namespace NeoplatonicismoLib
         String name;
         String username;
         String password;
-        List<Table> tables= new List<Table>();
+        List<Table> tables = new List<Table>();
 
         public Database(String Name, String Username, String Password)
         {
@@ -23,7 +23,42 @@ namespace NeoplatonicismoLib
 
         public void LoadDatabase()
         {
+            String path = "../../../structureTest1.txt";
+            String db = File.ReadAllText(path);
 
+            string[] tables = db.Split(new string[] { "[1]" }, StringSplitOptions.None);
+
+            foreach (String table in tables)
+            {
+                string tableName = table.Split(new string[] { "[2]" }, StringSplitOptions.None)[0];
+                string[] tableColumnTypes = table.Split(new string[] { "[2]" }, StringSplitOptions.None)[1].Split(new string[] { "[3]" }, StringSplitOptions.None);
+                List<TableColumn> tableColumns = new List<TableColumn>();
+
+                foreach (string columnType in tableColumnTypes)
+                {
+                    switch (columnType.Split(new string[] { "[4]" }, StringSplitOptions.None)[1])
+                    {
+                        case "string":
+                            tableColumns.Add(new TableColumn(columnType.Split(new string[] { "[4]" }, StringSplitOptions.None)[0], typeof(string)));
+                            break;
+                        case "int":
+                            tableColumns.Add(new TableColumn(columnType.Split(new string[] { "[4]" }, StringSplitOptions.None)[0], typeof(int)));
+                            break;
+                        case "double":
+                            tableColumns.Add(new TableColumn(columnType.Split(new string[] { "[4]" }, StringSplitOptions.None)[0], typeof(double)));
+                            break;
+                    }
+                }
+
+                CreateTable(tableName, tableColumns);
+
+                string[] tableRows = table.Split(new string[] { "[2]" }, StringSplitOptions.None)[2].Split(new string[] { "[5]" }, StringSplitOptions.None);
+                foreach (string tableRow in tableRows)
+                {
+                    string[] values = tableRow.Split(new string[] { "[3]" }, StringSplitOptions.None);
+                    AddToTable(tableName, values.ToList());
+                }
+            }
         }
 
         public List<Table> GetTables()
@@ -31,7 +66,7 @@ namespace NeoplatonicismoLib
             return tables;
         }
 
-        public void CreateTable(String tableName, List<TableColumn> tableColumns )
+        public void CreateTable(String tableName, List<TableColumn> tableColumns)
         {
             Table table = new Table(tableName, tableColumns);
             tables.Add(table);
@@ -39,9 +74,9 @@ namespace NeoplatonicismoLib
 
         public void DropTable(String tableName)
         {
-            Table table = FindTable(tableName);
-            tables.Remove(table);
+            tables.RemoveAt(FindTable(tableName));
         }
+
         /*
         public void AlterTable(String tableName, String columnName, TableColumn column)
         {
@@ -58,27 +93,43 @@ namespace NeoplatonicismoLib
            
         }
         */
-        public Table FindTable(String tableName)
+
+        public int FindTable(String tableName)
         {
-            foreach(Table table in tables)
+            for (int i = 0; i < tables.Count; i++)
             {
-                if (table.GetName() == tableName)
-                    return table;
+                if (tables[i].GetName() == tableName)
+                    return i;
             }
-            return null;
+            return -1;
+        }
+
+        public void AddToTable(String tableName, List<string> row)
+        {
+            tables[FindTable(tableName)].AddRow(row);
         }
 
         public void SaveDatabase()
         {
-            String path = "BaseDeDatos.txt";
-            
-            foreach (Table table in tables)
-            {
-                using (StreamWriter sw = File.CreateText(path))
-                {
+            string finalData = "";
 
+            for(int i = 0; i < tables.Count; i++)
+            {
+                if (i == 0)
+                {
+                    finalData += tables[i].ToFile();
+                }
+                else
+                {
+                    finalData += "[1]" + tables[i].ToFile();
                 }
             }
+            String path = "../../../structureTest2.txt";
+            StreamWriter sw = File.CreateText(path);
+            sw.AutoFlush = true;
+            sw.Write(finalData);
+            sw.AutoFlush = false;
+            sw.Close();
         }
     }
 }
