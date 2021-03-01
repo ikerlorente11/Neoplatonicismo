@@ -70,7 +70,15 @@ namespace NeoplatonicismoLib
 
         public void SaveDatabase()
         {
+            String path = "BaseDeDatos.txt";
+            
+            foreach (Table table in tables)
+            {
+                using (StreamWriter sw = File.CreateText(path))
+                {
 
+                }
+            }
         }
     }
 }
