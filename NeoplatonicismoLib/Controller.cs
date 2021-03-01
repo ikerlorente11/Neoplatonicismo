@@ -12,6 +12,12 @@ namespace NeoplatonicismoLib
         {
             switch (query.Split(' ')[0].ToLower())
             {
+                case "create":
+                    create(query);
+                    break;
+                case "drop":
+                    drop(query);
+                    break;
                 case "select":
                     select(query);
                     break;
@@ -25,6 +31,16 @@ namespace NeoplatonicismoLib
                     delete(query);
                     break;
             }
+        }
+
+        public static void create(String query)
+        {
+
+        }
+
+        public static void drop(String query)
+        {
+
         }
 
         public static void select(String query)
