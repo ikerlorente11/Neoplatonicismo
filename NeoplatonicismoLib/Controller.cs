@@ -8,6 +8,43 @@ namespace NeoplatonicismoLib
 {
     public class Controller
     {
+        public static void executeQuery(String query)
+        {
+            switch (query.Split(' ')[0].ToLower())
+            {
+                case "select":
+                    select(query);
+                    break;
+                case "insert":
+                    insert(query);
+                    break;
+                case "update":
+                    update(query);
+                    break;
+                case "delete":
+                    delete(query);
+                    break;
+            }
+        }
 
+        public static void select(String query)
+        {
+
+        }
+
+        public static void insert(String query)
+        {
+
+        }
+
+        public static void update(String query)
+        {
+
+        }
+
+        public static void delete(String query)
+        {
+
+        }
     }
 }
