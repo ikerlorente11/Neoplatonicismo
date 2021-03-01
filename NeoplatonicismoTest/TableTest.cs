@@ -178,7 +178,22 @@ namespace NeoplatonicismoTest
             Assert.AreEqual(table.GetListRows()[1][0], list[1][0]);
             Assert.AreEqual(table.GetListRows()[1][1], list[1][1]);
         }
+        [TestMethod]
+        public void ToFileTest()
+        {
+            TableColumn stringColumn = new TableColumn( "string", typeof(string));
+            TableColumn intColumn = new TableColumn("int", typeof(int));
+            TableColumn doubleColumn = new TableColumn("double", typeof(double));
+            List<TableColumn> columnstype = new List<TableColumn>();
+            columnstype.Add(stringColumn);
+            columnstype.Add(intColumn);
+            columnstype.Add(doubleColumn);
 
+            Table table = new Table("table", columnstype);
+            table.AddRow(new List<string> { "value1-1", "1" , "1.1"});
+            
+            Assert.AreEqual(table.ToFile(), "table[2]string[4]string[3]int[4]int[3]double[4]double[2]value1-1[3]1[3]1.1");
+        }
     }
 }
  
