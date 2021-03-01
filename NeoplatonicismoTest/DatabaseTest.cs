@@ -42,6 +42,16 @@ namespace NeoplatonicismoTest
         }
 
         [TestMethod]
+        public void GetTablesTest()
+        {
+            Database database = new Database("db", "admin", "admin");
+            database.CreateTable("table1", null);
+            database.CreateTable("table2", null);
+            database.CreateTable("table3", null);
+            Assert.AreEqual(3, database.GetTables().Count);
+        }
+
+        [TestMethod]
         public void CreateTableTest()
         {
             Database database = new Database("db", "admin", "admin");
@@ -85,6 +95,21 @@ namespace NeoplatonicismoTest
             database.CreateTable("table1", null);
             Assert.AreEqual(0, database.FindTable("table1"));
             Assert.AreEqual(-1, database.FindTable("table2"));
+        }
+
+        [TestMethod]
+        public void AddToTableTest()
+        {
+            Database database = new Database("db", "admin", "admin");
+            Type type = typeof(string);
+            List<TableColumn> tableColumns = new List<TableColumn>();
+            tableColumns.Add(new TableColumn("name", type));
+            database.CreateTable("table", tableColumns);
+            List<string> row = new List<string>();
+           
+            database.AddToTable("table", row);
+            Table table = database.GetTables()[0];
+            Assert.IsNotNull(table.FindRow("name", "table", "like"));
         }
 
         [TestMethod]
