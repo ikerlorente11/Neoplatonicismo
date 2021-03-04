@@ -8,43 +8,70 @@ namespace NeoplatonicismoLib
 {
     public class Controller
     {
-        public static void executeQuery(String query)
+        Database db;
+
+        public Controller()
+        {
+        }
+
+        public void connect(String dbName, String user, String password)
+        {
+            db = new Database(dbName, user, password);
+            db.LoadDatabase();
+        }
+
+        public List<List<string>> executeQuery(String query)
+        {
+            return select(query);
+        }
+
+        public string executeUpdate(String query)
         {
             switch (query.Split(' ')[0].ToLower())
             {
-                case "select":
-                    select(query);
-                    break;
+                case "create":
+                    return create(query);
+                case "drop":
+                    return drop(query);
                 case "insert":
-                    insert(query);
-                    break;
+                    return insert(query);
                 case "update":
-                    update(query);
-                    break;
+                    return update(query);
                 case "delete":
-                    delete(query);
-                    break;
+                    return delete(query);
+                default:
+                    return "Error";
             }
         }
 
-        public static void select(String query)
+        private string create(String query)
         {
-
+            return "";
         }
 
-        public static void insert(String query)
+        private string drop(String query)
         {
-
+            return "";
         }
 
-        public static void update(String query)
+        private List<List<string>> select(String query)
         {
-
+            return new List<List<string>>();
         }
 
-        public static void delete(String query)
+        private string insert(String query)
         {
+            return "";
+        }
 
+        private string update(String query)
+        {
+            return "";
+        }
+
+        private string delete(String query)
+        {
+            return "";
         }
     }
 }

@@ -42,6 +42,16 @@ namespace NeoplatonicismoTest
         }
 
         [TestMethod]
+        public void GetTablesTest()
+        {
+            Database database = new Database("db", "admin", "admin");
+            database.CreateTable("table1", null);
+            database.CreateTable("table2", null);
+            database.CreateTable("table3", null);
+            Assert.AreEqual(3, database.GetTables().Count);
+        }
+
+        [TestMethod]
         public void CreateTableTest()
         {
             Database database = new Database("db", "admin", "admin");
@@ -88,14 +98,29 @@ namespace NeoplatonicismoTest
         }
 
         [TestMethod]
+        public void AddToTableTest()
+        {
+            Database database = new Database("db", "admin", "admin");
+            Type type = typeof(string);
+            List<TableColumn> tableColumns = new List<TableColumn>();
+            tableColumns.Add(new TableColumn("name", type));
+            database.CreateTable("table", tableColumns);
+            List<string> row = new List<string>();
+           
+            database.AddToTable("table", row);
+            Table table = database.GetTables()[0];
+            Assert.IsNotNull(table.FindRow("name", "table", "like"));
+        }
+
+        [TestMethod]
         public void SaveDatabaseTest()
         {
             Database database = new Database("db", "admin", "admin");
             database.LoadDatabase();
             database.SaveDatabase();
 
-            String db = File.ReadAllText("../../../structureTest1.txt");
-            String db2 = File.ReadAllText("../../../structureTest2.txt");
+            String db = File.ReadAllText("db.txt");
+            String db2 = File.ReadAllText("db.txt");
 
             Assert.AreEqual(db, db2);
         }

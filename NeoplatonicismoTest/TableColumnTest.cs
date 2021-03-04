@@ -23,6 +23,16 @@ namespace NeoplatonicismoTest
             Assert.IsTrue(nameColumn.GetTypeValue() == typeof(String));
             Assert.IsFalse(nameColumn.GetTypeValue() == typeof(int));
         }
+        [TestMethod]
+        public void ToFileTest()
+        {
+            TableColumn nameColumn = new TableColumn("Name", typeof(String));
+            Assert.AreEqual(nameColumn.ToFile(),"Name[4]string");
+            TableColumn intColumn = new TableColumn("Int", typeof(Int32));
+            Assert.AreEqual(intColumn.ToFile(), "Int[4]int");
+            TableColumn doubleColumn = new TableColumn("Double", typeof(double));
+            Assert.AreEqual(doubleColumn.ToFile(), "Double[4]double");
+        }
 
     }
 }
