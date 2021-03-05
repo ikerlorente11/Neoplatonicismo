@@ -41,8 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller.cs" />
     <Compile Include="Database.cs" />
+    <Compile Include="MiniSQLQuery\IQuery.cs" />
+    <Compile Include="MiniSQLQuery\Parser.cs" />
+    <Compile Include="MiniSQLQuery\SelectAll.cs" />
+    <Compile Include="MiniSQLQuery\SelectColumns.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Table.cs" />
     <Compile Include="TableColumn.cs" />

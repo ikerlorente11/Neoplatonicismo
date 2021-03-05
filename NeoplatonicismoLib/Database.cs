@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using NeoplatonicismoLib.MiniSQLQuery;
 
 namespace NeoplatonicismoLib
 {
@@ -130,6 +131,12 @@ namespace NeoplatonicismoLib
             sw.Write(finalData);
             sw.AutoFlush = false;
             sw.Close();
+        }
+
+        public string ExecuteMiniSqlQuery(String query)
+        {
+            IQuery queryObject = MiniSQLQuery.Parser.Parse(query);
+            return queryObject.Run(this);
         }
     }
 }
