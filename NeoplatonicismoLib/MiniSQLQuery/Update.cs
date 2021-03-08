@@ -10,6 +10,8 @@ namespace NeoplatonicismoLib.MiniSQLQuery
     {
         public string Run(Database database)
         {
+
+            //const string UpdateAll = @"UPDATE ([a-zA-Z0-9]+) SET ([a-zA-Z0-9=_]+) WHERE ([a-zA-Z0-9=_]+);";
             return "";
         }
     }
