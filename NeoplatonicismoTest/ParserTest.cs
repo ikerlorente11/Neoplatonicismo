@@ -11,9 +11,12 @@ namespace NeoplatonicismoTest
         [TestMethod]
         public void Parsing()
         {
-            IQuery query = Parser.Parse("SELECT * FROM people;");
+            IQuery query = Parser.Parse("SELECT * FROM people WHERE edad = -10.78;");
             Assert.IsTrue(query is SelectAll);
             Assert.AreEqual("people", (query as SelectAll).Table());
+            Assert.AreEqual("edad", (query as SelectAll).Column());
+            Assert.AreEqual("=", (query as SelectAll).Operation());
+            Assert.AreEqual("-10.78", (query as SelectAll).Value());
         }
     }
 }
