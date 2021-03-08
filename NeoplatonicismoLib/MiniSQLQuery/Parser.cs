@@ -11,8 +11,8 @@ namespace NeoplatonicismoLib.MiniSQLQuery
     {
         public static IQuery Parse(string miniSqlSencence)
         {
-            const string selectAllParameter = @"SELECT /* FROM ([a-zA-Z0-9])";
-            const string selectColumnsPattern = @"SELECT ([a-zA-Z0-9],) FROM ([a-zA-Z0-9])";
+            const string selectAllParameter = @"SELECT \* FROM ([a-zA-Z0-9]+)";
+            const string selectColumnsPattern = @"SELECT ([a-zA-Z0-9,]+) FROM ([a-zA-Z0-9]+)";
 
             Match match = Regex.Match(miniSqlSencence, selectAllParameter);
             if (match.Success)
