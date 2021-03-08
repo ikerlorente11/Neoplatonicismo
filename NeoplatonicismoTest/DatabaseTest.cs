@@ -13,6 +13,12 @@ namespace NeoplatonicismoTest
         [TestMethod]
         public void LoadDatabaseTest()
         {
+            String path = "db.txt";
+            StreamWriter sw = File.CreateText(path);
+            sw.AutoFlush = true;
+            sw.Write("people[2]nombre[4]string[3]apellido[4]string[3]edad[4]int[3]email[4]string[2]Federico[3]Fernandez[3]25[3]fede@gmail.com[5]Aitor[3]Perez[3]43[3]aitor@outlook.com[1]cities[2]ciudad[4]string[3]cp[4]int[3]habitantes[4]int[3]pais[4]string[2]Vitoria[3]01000[3]250[3]España[5]Vigo[3]02000[3]190[3]España[1]temperature[2]pais[4]string[3]grados[4]double[3]cielo[4]string[2]alemania[3]-5.5[3]despejado[5]italia[3]18.2[3]nublado[5]canada[3]0.0[3]nublado");
+            sw.AutoFlush = false;
+            sw.Close();
             Database database = new Database("db", "admin", "admin");
             database.LoadDatabase();
 
