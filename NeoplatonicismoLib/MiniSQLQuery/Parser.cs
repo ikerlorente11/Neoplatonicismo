@@ -13,6 +13,7 @@ namespace NeoplatonicismoLib.MiniSQLQuery
         {
             const string selectAllParameter = @"SELECT \* FROM ([a-zA-Z0-9]+)";
             const string selectColumnsPattern = @"SELECT ([a-zA-Z0-9,]+) FROM ([a-zA-Z0-9]+)";
+            const string delete = @"DELETE FROM ([A-Za-z0-9]+_[A-Zaa-z0-9]+) WHERE ([A-Za-z0-9]+) ([<->-=]) ([A-Za-z0-9].+)";
 
             Match match = Regex.Match(miniSqlSencence, selectAllParameter);
             if (match.Success)
@@ -28,7 +29,12 @@ namespace NeoplatonicismoLib.MiniSQLQuery
                 SelectColumns selectColumns = new SelectColumns(match.Groups[2].Value, columnNames);
                 return selectColumns;
             }
-
+            match = Regex.Match(miniSqlSencence, delete);
+            if(match.Success)
+            {
+                Delete delete = new Delete(match.Groups[1].Value);
+                return delete;
+            }
 
             return null;
         }
