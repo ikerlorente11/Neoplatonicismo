@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using NeoplatonicismoTest;
 
-namespace NeoplatonicismoTest
+namespace NeoplatonicismoLib.MiniSQLQuery
 {
-    public class ControllerTest
+    public interface IQuery
     {
+        string Run(Database satabase);
     }
 }
