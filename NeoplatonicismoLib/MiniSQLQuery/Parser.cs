@@ -33,11 +33,8 @@ namespace NeoplatonicismoLib.MiniSQLQuery
             match = Regex.Match(miniSqlSencence, update);
             if (match.Success)
             {
-
-
-                /*string[] columnNames = match.Groups[1].Value.Split(',');
-                SelectColumns selectColumns = new SelectColumns(match.Groups[2].Value, columnNames);
-                return selectColumns;*/
+                Update update1 = new Update(match.Groups[1].Value, match.Groups[2].Value, match.Groups[3].Value, match.Groups[4].Value);
+                return update1;
             }
 
             return null;
