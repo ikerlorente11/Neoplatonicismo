@@ -14,8 +14,6 @@ namespace NeoplatonicismoLib.MiniSQLQuery
             const string selectAllParameter = @"SELECT \* FROM ([a-zA-Z0-9]+)";
             const string selectColumnsPattern = @"SELECT ([a-zA-Z0-9,]+) FROM ([a-zA-Z0-9]+)";
             const string delete = @"DELETE FROM ([A-Za-z0-9]+_[A-Zaa-z0-9]+) WHERE ([A-Za-z0-9]+) ([<->-=]) ([A-Za-z0-9].+)";
-            const string selectAllParameter = @"SELECT \* FROM ([a-zA-Z0-9]+)";
-            const string selectColumnsPattern = @"SELECT ([a-zA-Z0-9,]+) FROM ([a-zA-Z0-9]+)";
             const string insert = @"INSERT INTO ([A-za-z0-9]+) VALUES \((([A-za-z0-9]+),?)+\)";
 
             Match match = Regex.Match(miniSqlSencence, selectAllParameter);
