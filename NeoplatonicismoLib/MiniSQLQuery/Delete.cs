@@ -24,16 +24,29 @@ namespace NeoplatonicismoLib.MiniSQLQuery
                     cmd.ExecuteNonQuery();
                 
 
-            }
-            catch (Exception ex)
-            {
-                message = "No se ha podido borrar" ;
-            }
+        }
+        public string Operation()
+        {
+            return m_operation;
 
-            return message;
+        }
+        public string Value()
+        {
+            return m_value;
+
         }
 
-        public string Run(Database satabase)
+        public Delete (String table, String column, String operation, String value)
+        {
+            m_table = table;
+            m_column = column;
+            m_operation = operation;
+            m_value = value;
+        }
+           
+    }
+
+        public string Run (Database satabase)
         {
             throw new NotImplementedException();
         }
