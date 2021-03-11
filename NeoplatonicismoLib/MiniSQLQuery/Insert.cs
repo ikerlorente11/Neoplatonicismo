@@ -8,8 +8,25 @@ namespace NeoplatonicismoLib.MiniSQLQuery
 {
     public class Insert : IQuery
     {
-        string tableName;
-        string[] values;
+        private string m_tableName;
+        private string[] m_values;
+        
+        public string TableName()
+        {
+            return m_tableName;
+        }
+
+        public string[] Values()
+        {
+            return m_values;
+        }
+
+
+        public Insert(string tableName, string[] values)
+        {
+            m_tableName = tableName;
+            m_values = values;
+        }
         
         public string Run(Database database)
         {

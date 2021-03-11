@@ -33,9 +33,8 @@ namespace NeoplatonicismoLib.MiniSQLQuery
             match = Regex.Match(miniSqlSencence, insert);
             if (match.Success)
             {
-
-                Insert insert = new Insert();
-                return insert;
+                string[] insertions = match.Groups[2].Value.Split(',');
+                return new Insert(match.Groups[1].Value, insertions);
             }
 
 
