@@ -148,6 +148,12 @@ namespace NeoplatonicismoTest
 
             response = database.ExecuteMiniSqlQuery("SELECT nombre,apellido,edad FROM people WHERE nombre = Aitor;");
             Assert.AreEqual(response, "['nombre','apellido','edad']{'Aitor','Perez','43'}");
+
+            response = database.ExecuteMiniSqlQuery("SELECT * FROM people;");
+            Assert.AreEqual(response, "['nombre','apellido','edad','email']{'Federico','Fernandez','25','fede@gmail.com'}{'Aitor','Perez','43','aitor@outlook.com'}");
+            
+            response = database.ExecuteMiniSqlQuery("SELECT * FROM people WHERE nombre = Aitor;");
+            Assert.AreEqual(response, "['nombre','apellido','edad','email']{'Aitor','Perez','43','aitor@outlook.com'}");
         }
     }
 }
