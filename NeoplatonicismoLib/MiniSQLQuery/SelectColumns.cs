@@ -49,7 +49,69 @@ namespace NeoplatonicismoLib.MiniSQLQuery
         }
         public string Run(Database database)
         {
-            return "";
+            string response = "";
+            Table table = database.GetTables()[database.FindTable(m_table)];
+
+            List<TableColumn> columnsType = table.GetColumnsType();
+            List<int> columnPos = new List<int>();
+            for(int i = 0; i < m_columNames.Length; i++)
+            {
+                for(int j = 0; j < columnsType.Count; j++)
+                {
+                    if (m_columNames[i].Equals(columnsType[j].GetName()))
+                    {
+                        columnPos.Add(j);
+                    }
+                }
+            }
+
+            List<List<string>> rows = new List<List<string>>();
+
+            if (m_columnName == null && m_columnValue == null && m_operation == ' ')
+            {
+                rows = table.GetListRows();
+            }
+            else
+            {
+                List<int> rowsPos = table.FindRow(m_columnName, m_columnValue, m_operation.ToString());
+                foreach (int pos in rowsPos)
+                {
+                    rows.Add(table.GetListRows()[pos]);
+                }
+            }
+
+            response += "[";
+            for(int i = 0; i < m_columNames.Length; i++)
+            {
+                if(i < m_columNames.Length - 1)
+                {
+                    response += "'" + m_columNames[i] + "',";
+                }
+                else
+                {
+                    response += "'" + m_columNames[i] + "'";
+                }
+            }
+            response += "]";
+
+            for(int i = 0; i < rows.Count; i++)
+            {
+                response += "{";
+                for(int j = 0; j < columnPos.Count; j++)
+                {
+                    if (j == columnPos.Count - 1)
+                    {
+                        response += "'" + rows[i][j] + "'";
+                    }
+                    else
+                    {
+                        response += "'" + rows[i][j] + "',";
+                    }
+                }
+                response += "}";
+            }
+
+            return response;
         }
     }
 }

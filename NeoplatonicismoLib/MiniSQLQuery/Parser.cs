@@ -35,15 +35,14 @@ namespace NeoplatonicismoLib.MiniSQLQuery
             if (match.Success)
             {
                 string[] columnNames = match.Groups[1].Value.Split(',');
-                SelectColumns selectColumns = new SelectColumns(match.Groups[2].Value, columnNames, match.Groups[4].Value, match.Groups[6].Value, match.Groups[5].Value.ToCharArray()[0]);
-                return selectColumns;
-            }
 
-            match = Regex.Match(miniSqlSencence, insert);
-            if (match.Success)
-            {
-                string[] insertions = match.Groups[2].Value.Split(',');
-                return new Insert(match.Groups[1].Value, insertions);
+                if (match.Groups[4].Value == "")
+                {
+                    return new SelectColumns(match.Groups[2].Value, columnNames, null, null, ' ');
+                }
+                else{
+                    return new SelectColumns(match.Groups[2].Value, columnNames, match.Groups[4].Value, match.Groups[6].Value, match.Groups[5].Value.ToCharArray()[0]);
+                }
             }
 
 
