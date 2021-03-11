@@ -13,6 +13,7 @@ namespace NeoplatonicismoLib.MiniSQLQuery
         {
             const string selectAllParameter = @"SELECT \* FROM ([a-zA-Z0-9]+)";
             const string selectColumnsPattern = @"SELECT ([a-zA-Z0-9,]+) FROM ([a-zA-Z0-9]+)";
+            const string insert = @"INSERT INTO ([A-za-z0-9]+) VALUES \(([A-za-z0-9]+,?)+\)";
             const string update = @"UPDATE ([a-zA-Z0-9]+) SET ([a-zA-Z0-9_.]+[=][a-zA-Z0-9_.]+,?)+ WHERE ([a-zA-Z0-9_.]+[<->-=][a-zA-Z0-9_.]+)";
             const string selectAllParameter = @"SELECT \* FROM ([a-zA-Z0-9]+)";
             const string selectColumnsPattern = @"SELECT ([a-zA-Z0-9,]+) FROM ([a-zA-Z0-9]+)";
