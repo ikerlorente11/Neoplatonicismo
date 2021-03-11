@@ -11,14 +11,14 @@ namespace NeoplatonicismoLib.MiniSQLQuery
     {
         public static IQuery Parse(string miniSqlSencence)
         {
-            const string selectAllParameter = @"SELECT \* FROM ([a-zA-Z0-9]+)";
-            const string selectColumnsPattern = @"SELECT ([a-zA-Z0-9,]+) FROM ([a-zA-Z0-9]+)";
+            const string selectAllParameter = @"SELECT \* FROM ([a-zA-Z0-9]+)( WHERE ([a-zA-Z0-9]+) ([<=>]) ([a-zA-Z0-9.-]+))?";
+            const string selectColumnsPattern = @"SELECT ([a-zA-Z0-9,]+) FROM ([a-zA-Z0-9]+)( WHERE ([a-zA-Z0-9,]+) ([<>=]) ([a-zA-Z0-9,]+))?";
             const string insert = @"INSERT INTO ([A-za-z0-9]+) VALUES \((([A-za-z0-9]+),?)+\)";
 
             Match match = Regex.Match(miniSqlSencence, selectAllParameter);
             if (match.Success)
             {
-                if (match.Groups[3].Value=="")
+                if (match.Groups[3].Value == "")
                 {
                     SelectAll selectAll = new SelectAll(match.Groups[1].Value, null, null, null);
                     return selectAll;

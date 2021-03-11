@@ -3,10 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-//using Microsoft.SqlServer;
-//using System.Data.Sql;
-//using System.Data.SqlClient;
-//using System.Data;
 
 namespace NeoplatonicismoLib.MiniSQLQuery
 {
@@ -34,12 +30,11 @@ namespace NeoplatonicismoLib.MiniSQLQuery
             m_column = column;
             
         }
-           
-    }
 
-        public string Run(Database satabase)
+        public string Run(Database database)
         {
             return "";
         }
+    } 
 }
 

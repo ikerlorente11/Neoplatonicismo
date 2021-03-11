@@ -43,7 +43,6 @@ namespace NeoplatonicismoLib.MiniSQLQuery
 
         public string Run(Database database)
         {
-           
             return "";
         }
     }
