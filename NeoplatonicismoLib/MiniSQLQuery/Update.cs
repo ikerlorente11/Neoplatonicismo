@@ -9,9 +9,8 @@ namespace NeoplatonicismoLib.MiniSQLQuery
     class Update : IQuery
     {
         private string m_table;
-        private string m_column;
+        private string[] m_column;
         private string m_operation;
-        private string m_value;
         public string Run(Database database)
         {
 
@@ -24,7 +23,7 @@ namespace NeoplatonicismoLib.MiniSQLQuery
             return m_table;
         }
 
-        public string Column()
+        public string[] Column()
         {
             return m_column;
         }
@@ -34,16 +33,11 @@ namespace NeoplatonicismoLib.MiniSQLQuery
             return m_operation;
         }
 
-        public string Value()
-        {
-            return m_value;
-        }
-        public Update(String table, String column, String operation, String value)
+        public Update(String table, String[] column, String operation)
         {
             m_table = table;
             m_column = column;
             m_operation = operation;
-            m_value = value;
         }
     }
 }

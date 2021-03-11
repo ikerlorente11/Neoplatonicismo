@@ -13,7 +13,7 @@ namespace NeoplatonicismoLib.MiniSQLQuery
         {
             const string selectAllParameter = @"SELECT \* FROM ([a-zA-Z0-9]+)";
             const string selectColumnsPattern = @"SELECT ([a-zA-Z0-9,]+) FROM ([a-zA-Z0-9]+)";
-            const string update = @"UPDATE ([a-zA-Z0-9]+) SET ([a-zA-Z0-9_.]+)([<->-=])([a-zA-Z0-9_.]+) WHERE ([a-zA-Z0-9_.]+)([<->-=])([a-zA-Z0-9_.]+)";
+            const string update = @"UPDATE ([a-zA-Z0-9]+) SET ([a-zA-Z0-9_.]+[=][a-zA-Z0-9_.]+,?)+ WHERE ([a-zA-Z0-9_.]+[<->-=][a-zA-Z0-9_.]+)";
 
             Match match = Regex.Match(miniSqlSencence, selectAllParameter);
             if (match.Success)
@@ -33,7 +33,8 @@ namespace NeoplatonicismoLib.MiniSQLQuery
             match = Regex.Match(miniSqlSencence, update);
             if (match.Success)
             {
-                Update update1 = new Update(match.Groups[1].Value, match.Groups[2].Value, match.Groups[3].Value, match.Groups[4].Value);
+                string[] columnValue = match.Groups[2].Value.Split(',');
+                Update update1 = new Update(match.Groups[1].Value, columnValue, match.Groups[3].Value);
                 return update1;
             }
 
