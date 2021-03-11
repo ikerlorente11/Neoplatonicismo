@@ -12,43 +12,46 @@ namespace NeoplatonicismoLib.MiniSQLQuery
 {
     public class Delete : IQuery
     {
-        public string Run(Database database, object name)
-        {
-            string message = "Borrado con éxito";
+            private string m_table;
+            private string m_column;
+            private string m_operation;
+            private string m_value;
 
-            try
+            public string Table()
             {
-                SqlCommand cmd = new SqlCommand("Delete from table where name = @name") ;
-                
-                    cmd.Parameters.Add("@name", SqlDbType.Text).Value = name;
-                    cmd.ExecuteNonQuery();
-                
+                return m_table;
 
-        }
-        public string Operation()
-        {
-            return m_operation;
+            }
+            public string Column()
+            {
+                return m_column;
 
-        }
-        public string Value()
-        {
-            return m_value;
+            }
+            public string Operation()
+            {
+                return m_operation;
 
-        }
+            }
+            public string Value()
+            {
+                return m_value;
 
-        public Delete (String table, String column, String operation, String value)
-        {
-            m_table = table;
-            m_column = column;
-            m_operation = operation;
-            m_value = value;
-        }
-           
+            }
+            public Delete(String table, String column, String operation, String value)
+            {
+                m_table = table;
+                m_column = column;
+                m_operation = operation;
+                m_value = value;
+            }
+
+            public string Run(Database database)
+            {
+
+                return "";
+            }
     }
 
-        public string Run (Database satabase)
-        {
-            throw new NotImplementedException();
-        }
-    }
 }
+
+    
