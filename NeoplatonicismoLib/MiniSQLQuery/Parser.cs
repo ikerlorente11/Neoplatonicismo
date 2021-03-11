@@ -53,8 +53,14 @@ namespace NeoplatonicismoLib.MiniSQLQuery
             if (match.Success)
             {
                 string[] columnValue = match.Groups[2].Value.Split(',');
-                Update update1 = new Update(match.Groups[1].Value, columnValue, match.Groups[3].Value);
-                return update1;
+                if(match.Groups[3].Value == "")
+                {
+                    return new Update(match.Groups[1].Value, columnValue, null);
+                }
+                else
+                {
+                    return new Update(match.Groups[1].Value, columnValue, match.Groups[3].Value);
+                }
             }
 
             match = Regex.Match(miniSqlSencence, delete);
