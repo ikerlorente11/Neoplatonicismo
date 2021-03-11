@@ -17,8 +17,17 @@ namespace NeoplatonicismoLib.MiniSQLQuery
             Match match = Regex.Match(miniSqlSencence, selectAllParameter);
             if (match.Success)
             {
-                SelectAll selectAll = new SelectAll(match.Groups[1].Value, match.Groups[3].Value, match.Groups[4].Value, match.Groups[5].Value);
-                return selectAll;
+                if (match.Groups[3].Value=="")
+                {
+                    SelectAll selectAll = new SelectAll(match.Groups[1].Value, null, null, null);
+                    return selectAll;
+                }
+                else
+                {
+                    SelectAll selectAll = new SelectAll(match.Groups[1].Value, match.Groups[3].Value, match.Groups[4].Value, match.Groups[5].Value);
+                    return selectAll;
+                }
+               
             }
 
             match = Regex.Match(miniSqlSencence, selectColumnsPattern);
