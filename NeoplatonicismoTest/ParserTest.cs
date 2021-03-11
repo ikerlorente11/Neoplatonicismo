@@ -17,6 +17,13 @@ namespace NeoplatonicismoTest
             Assert.AreEqual("edad", (query as SelectAll).Column());
             Assert.AreEqual("=", (query as SelectAll).Operation());
             Assert.AreEqual("-10.78", (query as SelectAll).Value());
+            IQuery query1 = Parser.Parse("SELECT * FROM people;");
+            Assert.IsTrue(query1 is SelectAll);
+            Assert.AreEqual("people", (query1 as SelectAll).Table());
+            Assert.AreEqual(null, (query1 as SelectAll).Column());
+            Assert.AreEqual(null, (query1 as SelectAll).Operation());
+            Assert.AreEqual(null, (query1 as SelectAll).Value());
+
 
             query = Parser.Parse("SELECT nombre FROM people WHERE nombre = pepe;");
             Assert.IsTrue(query is SelectColumns);
