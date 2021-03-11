@@ -58,6 +58,12 @@ namespace NeoplatonicismoLib.MiniSQLQuery
             match = Regex.Match(miniSqlSencence, delete);
             if(match.Success)
             {
+                Delete delete1 = new Delete(match.Groups[1].Value, null, null, null);
+                return delete1;
+                
+            }
+            else
+            {
                 return new Delete(match.Groups[1].Value, match.Groups[3].Value, match.Groups[4].Value, match.Groups[5].Value);
             }
 
