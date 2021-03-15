@@ -40,6 +40,11 @@ namespace NeoplatonicismoTest
             Assert.AreEqual(null, (query as SelectColumns).ColumnName());
             Assert.AreEqual(null, (query as SelectColumns).ColumnValue());
             Assert.AreEqual(' ', (query as SelectColumns).Operation());
+           
+            query = Parser.Parse("DROP TABLE people;");
+            Assert.IsTrue(query is Drop);
+            Assert.AreEqual("people", (query as Drop).Table());
+
 
             query = Parser.Parse("CREATE TABLE casa (direccion string,numero int);");
             Assert.IsTrue(query is Create);
