@@ -12,7 +12,7 @@ namespace NeoplatonicismoLib.MiniSQLQuery
         public static IQuery Parse(string miniSqlSencence)
         {
             const string insert = @"INSERT INTO ([A-za-z0-9]+) VALUES \(([A-za-z0-9]+,?)+\)";
-            const string update = @"UPDATE ([a-zA-Z0-9]+) SET ([a-zA-Z0-9_.]+[=][a-zA-Z0-9_.]+,?)+ WHERE ([a-zA-Z0-9_.]+[<->-=][a-zA-Z0-9_.]+)";
+            const string update = @"UPDATE ([a-zA-Z0-9]+) SET (([a-zA-Z0-9_.]+)=([a-zA-Z0-9_.]+,?))+( WHERE (([a-zA-Z0-9_.]+)([<>=])([a-zA-Z0-9_.]+)))*";
             const string delete = @"DELETE FROM ([A-Za-z0-9]+_[A-Zaa-z0-9]+) WHERE ([A-Za-z0-9]+) ([<->-=]) ([A-Za-z0-9].+)";
             const string selectAllParameter = @"SELECT \* FROM ([a-zA-Z0-9]+)( WHERE ([a-zA-Z0-9]+) ([<=>]) ([a-zA-Z0-9.-]+))?";
             const string selectColumnsPattern = @"SELECT ([a-zA-Z0-9,]+) FROM ([a-zA-Z0-9]+)( WHERE ([a-zA-Z0-9,]+) ([<>=]) ([a-zA-Z0-9,]+))?";
@@ -50,14 +50,15 @@ namespace NeoplatonicismoLib.MiniSQLQuery
             match = Regex.Match(miniSqlSencence, update);
             if (match.Success)
             {
-                string[] columnValue = match.Groups[2].Value.Split(',');
-                if(match.Groups[3].Value == "")
+                string[] columnValue = match.Groups[3].Value.Split(',');
+                string[] values = match.Groups[4].Value.Split(',');
+                if(match.Groups[5].Value == "")
                 {
-                    return new Update(match.Groups[1].Value, columnValue, null);
+                    return new Update(match.Groups[1].Value, columnValue, null, null, null);
                 }
                 else
                 {
-                    return new Update(match.Groups[1].Value, columnValue, match.Groups[3].Value);
+                    return new Update(match.Groups[1].Value, columnValue, match.Groups[7].Value, values, match.Groups[8].Value);
                 }
             }
 
