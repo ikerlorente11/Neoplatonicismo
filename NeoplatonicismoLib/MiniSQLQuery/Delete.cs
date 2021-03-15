@@ -43,20 +43,11 @@ namespace NeoplatonicismoLib.MiniSQLQuery
 
             public string Run(Database database)
             {
-            if (m_column == null)
-            {
-                database.DropTable(m_table);
+            Table table = database.GetTables()[database.FindTable(m_table)];
 
-            }
-            else
-            {
-                List<Table> tables = database.GetTables();
-                Table table = tables[database.FindTable(m_table)];
-                table.DeleteRow(m_column, m_value, m_operation);
-
-            }
-
-                return "Tupla(s) deleted.";
+            table.DeleteRow(m_column, m_value, m_operation);
+                
+            return "Tupla(s) deleted.";
             }
     }
 
