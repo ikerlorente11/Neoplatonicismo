@@ -40,6 +40,14 @@ namespace NeoplatonicismoTest
             Assert.AreEqual(null, (query as SelectColumns).ColumnName());
             Assert.AreEqual(null, (query as SelectColumns).ColumnValue());
             Assert.AreEqual(' ', (query as SelectColumns).Operation());
+
+            query = Parser.Parse("CREATE TABLE casa (direccion string,numero int);");
+            Assert.IsTrue(query is Create);
+            Assert.AreEqual("casa", (query as Create).Table());
+            Assert.AreEqual("direccion", (query as Create).TableColumns()[0].GetName());
+            Assert.AreEqual(typeof(string), (query as Create).TableColumns()[0].GetTypeValue());
+            Assert.AreEqual("numero", (query as Create).TableColumns()[1].GetName());
+            Assert.AreEqual(typeof(int), (query as Create).TableColumns()[1].GetTypeValue());
         }
     }
 }

@@ -11,6 +11,7 @@ namespace NeoplatonicismoLib.MiniSQLQuery
     {
         public static IQuery Parse(string miniSqlSencence)
         {
+            const string create = @"CREATE TABLE ([A-za-z0-9]+) (\(((([A-za-z0-9]+) ((string|int|double),?))+)\))";
             const string insert = @"INSERT INTO ([A-za-z0-9]+) VALUES \(([A-za-z0-9]+,?)+\)";
             const string update = @"UPDATE ([a-zA-Z0-9]+) SET ([a-zA-Z0-9_.]+[=][a-zA-Z0-9_.]+,?)+ WHERE ([a-zA-Z0-9_.]+[<->-=][a-zA-Z0-9_.]+)";
             const string delete = @"DELETE FROM ([A-Za-z0-9]+_[A-Zaa-z0-9]+) WHERE ([A-Za-z0-9]+) ([<->-=]) ([A-Za-z0-9].+)";
@@ -30,7 +31,33 @@ namespace NeoplatonicismoLib.MiniSQLQuery
                     SelectAll selectAll = new SelectAll(match.Groups[1].Value, match.Groups[3].Value, match.Groups[4].Value, match.Groups[5].Value);
                     return selectAll;
                 }
-               
+
+            }
+
+            match = Regex.Match(miniSqlSencence, create);
+            if (match.Success)
+            {
+                string name = match.Groups[1].Value;
+                string[] columns = match.Groups[3].Value.Split(',');
+                List<TableColumn> tableColumns = new List<TableColumn>();
+
+                foreach (string column in columns)
+                {
+                    switch (column.Split(' ')[1])
+                    {
+                        case "string":
+                            tableColumns.Add(new TableColumn(column.Split(' ')[0], typeof(string)));
+                            break;
+                        case "int":
+                            tableColumns.Add(new TableColumn(column.Split(' ')[0], typeof(int)));
+                            break;
+                        case "double":
+                            tableColumns.Add(new TableColumn(column.Split(' ')[0], typeof(double)));
+                            break;
+                    }
+                }
+
+                return new Create(name, tableColumns);
             }
 
             match = Regex.Match(miniSqlSencence, selectColumnsPattern);
