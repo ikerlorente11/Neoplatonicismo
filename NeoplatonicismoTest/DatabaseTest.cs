@@ -154,6 +154,18 @@ namespace NeoplatonicismoTest
             
             response = database.ExecuteMiniSqlQuery("SELECT * FROM people WHERE nombre = Aitor;");
             Assert.AreEqual(response, "['nombre','apellido','edad','email']{'Aitor','Perez','43','aitor@outlook.com'}");
+
+            database.CreateTable("pepe", null);
+            int tablesNum = database.GetTables().Count;
+            response = database.ExecuteMiniSqlQuery("DROP TABLE pepe;");
+            Assert.AreEqual(response, "Table pepe deleted");
+            Assert.IsTrue(tablesNum - 1 == database.GetTables().Count);
+
+
+            int nTablasOld = database.GetTables().Count;
+            response = database.ExecuteMiniSqlQuery("CREATE TABLE house (direction string,number int);");
+            Assert.AreEqual(response, "Table house created successfully");
+            Assert.IsTrue(database.GetTables().Count == (nTablasOld + 1));
         }
     }
 }

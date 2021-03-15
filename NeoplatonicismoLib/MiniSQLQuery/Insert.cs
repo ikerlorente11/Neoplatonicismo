@@ -30,7 +30,10 @@ namespace NeoplatonicismoLib.MiniSQLQuery
         
         public string Run(Database database)
         {
-            return "";
+            List<string> values= m_values.OfType<string>().ToList();
+
+            database.AddToTable(m_tableName, values);
+            return "Tuple added";
         }
     }
 }
